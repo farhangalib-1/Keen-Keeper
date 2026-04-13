@@ -1,5 +1,17 @@
 import { FaPlus } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
+import User from "../User/User";
 const Home = () => {
+const [user, setUser] = useState([])
+useEffect(() =>{
+fetch('/friends.json')
+  .then(res => res.json())
+  .then(data => setUser(data))
+}, [])
+console.log(user);
+
+
   return (
     <div>
       <div className="topsection mt-20 text-center">
@@ -37,7 +49,13 @@ const Home = () => {
     <p className="text-[#64748B] text-sm">Interactions This Month</p>
     
   </div>
+
         </div>
+      </div>
+      <h1 className="text-3xl font-bold w-10/12 mx-auto mt-10 mb-5">Your Friends</h1>
+      <div className="w-10/12 mx-auto grid grid-cols-4 gap-5 mb-20">
+        {user.map(user => <User key={user.id} user={user}></User>)
+        }
       </div>
     </div>
   )
