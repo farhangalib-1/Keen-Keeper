@@ -9,7 +9,7 @@ fetch('/friends.json')
   .then(res => res.json())
   .then(data => setUser(data))
 }, [])
-console.log(user);
+
 
 
   return (
