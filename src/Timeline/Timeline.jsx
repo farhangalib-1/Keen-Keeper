@@ -16,7 +16,7 @@ const Timeline = () => {
   };
 
   return (
-    <div className="w-10/12 mx-auto mt-10">
+    <div className="w-10/12 mx-auto mt-10 mb-10">
       <h1 className="text-3xl font-bold mb-6">Timeline</h1>
 
       <div className="space-y-4">

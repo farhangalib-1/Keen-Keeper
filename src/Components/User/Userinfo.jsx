@@ -9,14 +9,16 @@ import { MdOutlineVideocam } from "react-icons/md";
 import { useContext } from "react";
 import { toast } from "react-toastify";
 import { TimelineContext } from "../../Custom/TimelineContext";
+import { ToastContainer } from "react-toastify";
 const Userinfo = () => {
+  
 const { addTimeline } = useContext(TimelineContext);
  const { id } = useParams()
     const userAllData = useLoaderData();
    const selectedUser = userAllData.find(el=> el.id == id)
    console.log(selectedUser)
    const handleAction = (type) => {
-  toast.success(`${type} successful!`);
+        toast.success(`${type} successful!`)
 
   const newItem = {
     id: Date.now(),
@@ -31,6 +33,7 @@ const { addTimeline } = useContext(TimelineContext);
 
   addTimeline(newItem);
 };
+ <ToastContainer />
   return (
     <div className="w-11/12 mx-auto flex justify-center gap-6">
       <div className="leftContent w-96">
@@ -88,6 +91,8 @@ const { addTimeline } = useContext(TimelineContext);
       </div>
     </div>
   )
+  
 }
+
 
 export default Userinfo
