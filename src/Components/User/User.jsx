@@ -2,7 +2,7 @@ import { Link } from "react-router";
 const User = ({ user }) => {
   return (
     <div>
-<Link to={`user/${user.id}`} class={`relative bg-neutral-primary-soft max-w-xs w-full p-6 rounded-2xl rounded-base shadow`}>
+<Link to={`user/${user.id}`} class={`relative bg-neutral-primary-soft max-w-xs w-full p-6 rounded-2xl rounded-base`}>
        
     <div class="flex flex-col items-center">
         <img class="w-24 h-24 mb-6 rounded-full" src={user.picture} alt={user.name}/>

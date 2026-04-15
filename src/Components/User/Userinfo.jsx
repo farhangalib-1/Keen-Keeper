@@ -6,11 +6,31 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiPhoneCall } from "react-icons/fi";
 import { BiMessageDots } from "react-icons/bi";
 import { MdOutlineVideocam } from "react-icons/md";
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import { TimelineContext } from "../../Custom/TimelineContext";
 const Userinfo = () => {
+const { addTimeline } = useContext(TimelineContext);
  const { id } = useParams()
     const userAllData = useLoaderData();
    const selectedUser = userAllData.find(el=> el.id == id)
    console.log(selectedUser)
+   const handleAction = (type) => {
+  toast.success(`${type} successful!`);
+
+  const newItem = {
+    id: Date.now(),
+    type: type,
+    name: selectedUser.name,
+    date: new Date().toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }),
+  };
+
+  addTimeline(newItem);
+};
   return (
     <div className="w-11/12 mx-auto flex justify-center gap-6">
       <div className="leftContent w-96">
@@ -22,7 +42,7 @@ const Userinfo = () => {
                 {selectedUser.tags.map((tag, index) => (
                 <span key={index} class="badge py-3 px-3 bg-[#cafada] text-[#244d3f] mr-3 rounded-full font-semibold my-4 ">{tag}</span>
             ))} <br/>
-              <span class = {` ${selectedUser.status === 'almost due' && 'bg-[#f0ae43] text-white px-4 py-1 rounded-full font-medium'} ${selectedUser.status === 'overdue' && 'bg-red-500 text-white px-4 py-1 rounded-full font-medium'} ${selectedUser.status === 'on-track' && 'bg-[#244d3f] text-white px-4 py-1 rounded-full font-medium'} w-fit`}>{selectedUser.status}</span>
+              <span className = {` ${selectedUser.status === 'almost due' && 'bg-[#f0ae43] text-white px-4 py-1 rounded-full font-medium'} ${selectedUser.status === 'overdue' && 'bg-red-500 text-white px-4 py-1 rounded-full font-medium'} ${selectedUser.status === 'on-track' && 'bg-[#244d3f] text-white px-4 py-1 rounded-full font-medium'} w-fit`}>{selectedUser.status}</span>
               <h1 className = "text-sm font-semibold italic mt-4 ">"{selectedUser.bio}"</h1>
           </div>
           <div>
@@ -60,9 +80,9 @@ const Userinfo = () => {
         <div className="w-full rounded-2xl shadow p-6 mt-6">
             <h1 className = "text-[#244D3F] text-[20px] font-medium mb-4">Quick Check-In</h1>
             <div className="grid grid-cols-3 gap-4">
-            <button className="btn text-[20px] py-20 flex"><div className="flex flex-col items-center"> <FiPhoneCall /> <h1>Call</h1></div></button>
-            <button className="btn text-[20px] py-20"><div className="flex flex-col items-center"><BiMessageDots /> <h1>Text</h1> </div></button>
-            <button className="btn text-[20px] py-20"><div className="flex flex-col items-center"><MdOutlineVideocam /> <h1>Video</h1> </div></button>
+            <button onClick={()=> handleAction("Call")} className="btn text-[20px] py-20 flex"><div className="flex flex-col items-center"> <FiPhoneCall /> <h1>Call</h1></div></button>
+            <button onClick={()=> handleAction("Text")} className="btn text-[20px] py-20"><div className="flex flex-col items-center"><BiMessageDots /> <h1>Text</h1> </div></button>
+            <button onClick={()=> handleAction("Video")} className="btn text-[20px] py-20"><div className="flex flex-col items-center"><MdOutlineVideocam /> <h1>Video</h1> </div></button>
             </div>
         </div>
       </div>
