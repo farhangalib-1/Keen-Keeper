@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 const Userinfo = () => {
   
 const { addTimeline } = useContext(TimelineContext);
+console.log(addTimeline)
  const { id } = useParams()
     const userAllData = useLoaderData();
    const selectedUser = userAllData.find(el=> el.id == id)
@@ -35,8 +36,8 @@ const { addTimeline } = useContext(TimelineContext);
 };
  <ToastContainer />
   return (
-    <div className="w-11/12 mx-auto flex justify-center gap-6">
-      <div className="leftContent w-96">
+    <div className="w-11/12 mx-auto flex flex-col md:flex-row justify-center gap-6">
+      <div className="leftContent w-96 mx-auto md:mx-0">
           <div className="User-Info text-center my-6 py-3.5 rounded-2xl shadow">
           <div>
             <img className="rounded-full inline-block" src={selectedUser.picture} ></img>
