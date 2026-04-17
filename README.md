@@ -1,16 +1,18 @@
-# React + Vite
+## 📌 Keen Keeper
+### 🚀 Short Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Keen Keeper is a smart task and productivity management application that helps users efficiently track, organize, and manage their daily activities with ease.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+React.js – Frontend UI development <br>
+JavaScript (ES6+) – Core logic <br>
+Tailwind CSS / CSS – Styling and layout <br>
+Recharts – Data visualization (pie chart, analytics) <br>
+React Router – Navigation and routing
+## ✨ Key Features
+📊 Task Analytics Dashboard <br>
+Visualize your task progress using charts (like pie charts) for better insights.<br>
+📝 Timeline-Based Task Management<br>
+Add, view, and manage tasks in a structured timeline format.<br>
+⚡ Interactive & Responsive UI<br>
+Clean, user-friendly interface that works smoothly across devices.<br>
